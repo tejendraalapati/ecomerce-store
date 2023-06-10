@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/9619035657.js" crossorigin="anonymous"></script>
+</head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Spartan',sans-serif;
+    }
+    body{
+        width:100%;
+    }
+    #header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 80px;
+        background-color: #E3E6F3;
+        box-shadow: 0 5px 15px rgba(0, 0,0, 0.06);
+        z-index: 999;
+        position: sticky;
+        top: 0;
+        left:0;
+    }
+    #navbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #navbar li{
+        list-style: none;
+        padding: 0 20px;
+        position:relative;
+    }
+    #navbar li a{
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a1a1a;
+        transition: 0.3s ease;
+    }
+    #navbar li a:hover,#navbar li a.active{
+        color:#088178;
+    }
+    #logo{
+        color: red;
+    }
+    #navbar li a.active::after, #navbar li a:hover::after{
+        content:"";
+        width: 30%;
+        height: 2px;
+        background: #088178;
+        position: absolute;
+        bottom: -4px;
+        left:20px;
+    }
+    .head{
+        display: flex;
+        padding: 2px;
+        margin: 4px;
+        background: #088178;
+        justify-content: center;
+    }
+    .para{
+        width:100%;
+        height: 100px;
+        color:black;
+    }
+</style>
+<body>
+    <section id="header">
+        <span><i id="logo">ROYAL</i> SHOPING</span>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="{% url 'Shop' %}">Shop</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'Contact' %}">Contact</a></li>
+                <li><a href="{% url 'Signup' %}">Signup</a></li>
+                <li><a href="{% url 'Login' %}">Login</a></li>
+                <li><a href="#"><i class="fa fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="about">
+            <h1 class="head">ABOUT-US</h1>
+            <p class="para">Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the potential intent to purchase a suitable selection of them. 
+                A typology of shopper types has been developed by scholars which identifies one group of shoppers as recreational shoppers, that is, those who enjoy shopping and view it as a leisure activity.
+                Online shopping has become a major disruptor in the retail industry as consumers can now search for product information and place product orders across different regions. Online retailers deliver their products directly to the consumers' home, offices, or wherever they want. 
+                The B2C (business to consumer) process has made it easy for consumers to select any product online from a retailer's website and to have it delivered relatively quickly.
+                Using online shopping methods, consumers do not need to consume energy by physically visiting physical stores. This way they save time and the cost of traveling. A retailer or a shop is a business that presents a selection of goods and offers to trade or sell them to customers for money or other goods.
+                Shoppers' shopping experiences may vary. They are based on a variety of factors including how the customer is treated, convenience, the type of goods being purchased, and mood.
+                It’s a snowy Saturday in Chicago, but Amy, age 28, needs resort wear for a Caribbean vacation. Five years ago, in 2011, she would have headed straight for the mall. Today she starts shopping from her couch by launching a videoconference with her personal concierge at Danella, the retailer where she bought two outfits the previous month. The concierge recommends several items, superimposing photos of them onto Amy’s avatar. 
+                Amy rejects a couple of items immediately, toggles to another browser tab to research customer reviews and prices, finds better deals on several items at another retailer, and orders them. 
+                She buys one item from Danella online and then drives to the Danella store near her for the in-stock items she wants to try on.
+                As Amy enters Danella, a sales associate greets her by name and walks her to a dressing room stocked with her online selections—plus some matching shoes and a cocktail dress. She likes the shoes, so she scans the bar code into her smartphone and finds the same pair for $30 less at another store. The sales associate quickly offers to match the price, and encourages Amy to try on the dress. It is daring and expensive, so Amy sends a video to three stylish friends, asking for their opinion. The responses come quickly: three thumbs down. 
+                She collects the items she wants, scans an internet site for coupons (saving an additional $73), and checks out with her smartphone.
+                As she heads for the door, a life-size screen recognizes her and shows a special offer on an irresistible summer-weight top. Amy checks her budget online, smiles, and uses her phone to scan the customized Quick Response code on the screen. The item will be shipped to her home overnight.
+                This scenario is fictional, but it’s neither as futuristic nor as fanciful as you might think. All the technology Amy uses is already available—and within five years, much of it will be ubiquitous. 
+                But what seems like a dream come true for the shopper—an abundance of information, near-perfect price transparency, a parade of special deals—is already feeling more like a nightmare for many retailers. Companies such as Tower Records, Circuit City, Linens ’n Things, and Borders are early victims—and there will be more.
+                Every 50 years or so, retailing undergoes this kind of disruption. A century and a half ago, the growth of big cities and the rise of railroad networks made possible the modern department store. Mass-produced automobiles came along 50 years later, and soon shopping malls lined with specialty retailers were dotting the newly forming suburbs and challenging the city-based department stores. The 1960s and 1970s saw the spread of discount chains—Walmart, Kmart, and the like—and, soon after, big-box “category killers” such as Circuit City and Home Depot, all of them undermining or transforming the old-style mall. Each wave of change doesn’t eliminate what came before it,
+                but it reshapes the landscape and redefines consumer expectations, often beyond recognition. Retailers relying on earlier formats either adapt or die out as the new ones pull volume from their stores and make the remaining volume less profitable.
+            </p>
+    </section>
+</body>
+</html>

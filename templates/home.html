@@ -1,0 +1,448 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/9619035657.js" crossorigin="anonymous"></script>
+    </head>
+<style>
+    *{
+        margin:0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Spartan',sans-serif;
+    }
+    .section-p1{
+        padding: 40px 80px;
+    }
+    .section-m1{
+        margin: 40px 0;
+    }
+    button.normal{
+        font-size: 14px;
+        font-weight: 600;
+        padding: 15px 30px;
+        color: #000;
+        background-color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        transition: 0.2s;
+    }
+    body{
+        width: 100%;
+    }
+    /* Header start */
+    #header{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px 80px;
+        background-color: #E3E6F3;
+        box-shadow: 0 5px 15px rgba(0, 0,0, 0.06);
+        z-index: 999;
+        position: sticky;
+        top: 0;
+        left:0;
+    }
+    #navbar{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #navbar li{
+        list-style: none;
+        padding: 0 20px;
+        position:relative;
+
+    }
+    #navbar li a{
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        color: #1a1a1a;
+        transition: 0.3s ease;
+    }
+    #navbar li a:hover,#navbar li a.active{
+        color:#088178;
+
+    }
+    #logo{
+        color: red;
+    }
+    #navbar li a.active::after, #navbar li a:hover::after{
+        content:"";
+        width: 30%;
+        height: 2px;
+        background: #088178;
+        position: absolute;
+        bottom: -4px;
+        left:20px;
+    }
+    /*Home page*/
+    #hero{
+        background-image:url('/static/images/istockphoto-487760454-612x612.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 90vh;
+        width:100%;
+        background-position:top 25% right 0;
+        padding: 0 80px;
+        display:flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+    }
+    #hero h4{
+        padding-bottom: 15px;
+    }
+    #hero h1{
+        color: #088178;
+    }
+    #hero button{
+        background-image: url('/static/images/button.png');
+        background-color: transparent;
+        color:#088178;
+        border: 0;
+        padding: 14px 80px 14px 65px;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 15px;
+    }
+    #feature{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    #feature .fe-box{
+        width: 250px;
+        text-align: center;
+        padding: 25px 15px;
+        box-shadow: 20px 20px 34px rgba(0, 0,0, 0.03) ;
+        border: 1px solid #cce7d0;
+        border-radius:4px;
+        margin: 15px 0;
+    }
+    #feature .fe-box:hover{
+        box-shadow: 10px 10px 54px rgba(70,62,221,0.1) ;
+    }
+    #feature .fe-box h6{
+        display: inline-block;
+        padding: 9px 8px 6px 8px;
+        line-height: 1;
+        border-radius: 4px;
+        color: #088178;
+        background-color:#fddde4;
+    }
+    #feature .fe-box img{
+        width:100%;
+        margin-bottom: 10px;
+    }
+    #feature .fe-box:nth-child(2) h6{
+        background-color: #cdebbc;
+    }
+    #feature .fe-box:nth-child(3) h6{
+        background-color: #d1e8f2;
+    }
+    #feature .fe-box:nth-child(4) h6{
+        background-color: #cdd4f8;
+    }
+    #feature .fe-box:nth-child(5) h6{
+        background-color: #f6dbf6;
+    }
+    #feature .fe-box:nth-child(6) h6{
+        background-color: #fff2e5;
+    }
+    /*products*/
+    #product1{
+        text-align: center;
+    }
+    #product1 .pro-container{
+        display:flex;
+        padding-top:20px;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    #product1 .pro{
+        width:23%;
+        min-width:250px;
+        padding: 10px 12px;
+        border: 1px solid #cce7d0;
+        border-radius: 25px;
+        cursor: pointer;
+        box-shadow: 20px 20px 30px rgba(0, 0,0, 0.02);
+        margin:15px 0;
+        transition: 0.2s ease;
+        position: relative;
+    }
+    #product1 .pro:hover{
+        box-shadow: 20px 20px 30px rgba(0, 0,0, 0.06);
+    }
+    #product1 .pro img{
+        width: 100%;
+        border-radius:20px;
+    }
+    #product1 .pro .desc{
+        text-align: start;
+        padding: 10px 0;
+    }
+    #product1 .pro .desc span{
+        color:#606063;
+        font-size: 12px;
+    }
+    #product1 .pro .desc h5{
+        padding-top:7px;
+        color:#1a1a1a;
+        font-size: 14px;
+    }
+    #product1 .pro .desc i{
+        font-size: 12px;
+        color:rgba(243,181,25);
+    }
+    #product1 .pro .desc h4{
+        padding-top: 7px;
+        font-size: 15px;
+        font-weight: 700;
+        color:#088178;
+    }
+    #product1 .pro a{
+        width:40px;
+        height: 40px;
+        line-height: 40px;
+        border-radius: 50px;
+        background-color: #e8f6ea;
+        font-weight: 500;
+        color:#088178;
+        border: 5px solid #cce7d0;
+        position:absolute;
+        bottom: 20px;
+        right:10px;
+    }
+    /*banner*/
+    #banner{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items: center;
+        text-align: center;
+        background-image: url('/static/images/pngtree-dynamic-red-background-picture-image_149101.jpg');
+        width:100%;
+        height: 40vh;
+        background-size: cover;
+        background-position: center;
+
+    }
+    #banner h4{
+        color:#fff;
+        font-size: 16px;
+    }
+    #banner h2{
+        color:#fff;
+        font-size: 16px;
+        padding: 10px 0;
+    }
+    #banner h2 span{
+        color:#ef3636;
+    }
+    #banner button:hover{
+        background: #088178;
+        color: #fff;
+    }
+    /*footer*/
+    .container{
+        max-width: 1170px;
+        margin: auto;
+    }
+    .row{
+        display:flex;
+        flex-wrap:wrap;
+    }
+    ul{
+        list-style: none;
+    }
+    .footer{
+        background-color:#24262b ;
+        padding:70px 0;
+    }
+    .footer-col{
+        width:25%;
+        padding:15px;
+    }
+    .footer-col h4{
+        font-size: 18px;
+        color:#ffffff;
+        text-transform: capitalize;
+        margin-bottom: 35px;
+        font-weight: 500;
+        position:relative;
+    }
+    .footer-col h4::before{
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        background-color: #e91e63;
+        height: 2px;
+        box-sizing: border-box;
+        width:50px;
+    }
+    .footer-col ul li:not(:last-child){
+        margin-bottom: 10px;
+    }
+    .footer-col ul li a{
+        font-size: 16px;
+        text-transform: capitalize;
+        color:#ffffff;
+        text-decoration: none;
+        font-weight: 300;
+        color:#bbbbbb;
+        display: block;
+        transition: all 0.3s ease;
+    }
+    .footer-col ul li a:hover{
+        color:#ffffff;
+        padding-left:8px;
+    }
+    .footer-col .social-links a{
+        display: inline-block;
+        height:40px;
+        width: 40px;
+        background-color: rgba(255, 255,255, 0.2);
+        margin:0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color:#ffffff;
+        transition: all 0.5s ease;
+    }
+    .footer-col .social-links a:hover{
+        color:#24262b;
+        background-color: #ffffff;
+    }
+</style>
+<body>
+    <section id="header">
+        <span><i id="logo">ROYAL</i> SHOPING</span>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="#">Home</a></li>
+                <li><a href="{% url 'Shop' %}">Shop</a></li>
+                <li><a href="{%url 'about' %}">About</a></li>
+                <li><a href="{% url 'Contact' %}">Contact</a></li>
+                <li><a href="{% url 'Signup' %}">Signup</a></li>
+                <li><a href="{% url 'Login' %}">Login</a></li>
+                <li><a href="{% url 'carts' %}"><i class="fa-solid fa-cart-shopping"></i></a></li>
+            </ul>
+        </div>
+    </section>
+    <section id="hero">
+        <h4>Trade-in-offer</h4>
+        <h2>Super value deals</h2>
+        <h1>On all products</h1>
+        <p>Save more with coupons & up to 70% off!</p>
+        <button>Shop Now</button>
+    </section>
+    <section id="feature">
+        <div class="fe-box">
+            <img src="{% static 'images/free-shipping-delivery-service-logo-badge-vector.jpg' %}" height="170" alt="">
+            <h6>Free Shipping</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'images/online-order-1.png' %}" alt="">
+            <h6>Online order</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'images/people-save-money-in-a-large-piggy-bank-free-vector.jpg' %}" height="170" alt="">
+            <h6>Save Money</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'images/pro.jpg' %}" height="170" alt="">
+            <h6>Promotions</h6>
+        </div>
+        <div class="fe-box">
+            <img src="{% static 'images/images.jpg' %}" height="170" alt="">
+            <h6>24/7 Suppourt</h6>
+        </div>
+    </section>
+    <section id="product1" class="section-p1">
+        <h2>Featured Products</h2>
+        <p>Summer Collection New Modern Design</p>
+<div class="pro-container">
+    {% for p in products %}
+<div class="pro">
+    <img src="{{ p.images.url }}"  alt="product">
+    <div class="desc">
+        <span>{{ p.title }}</span>
+        <h5>{{ p.description }}</h5>
+        <div class="star">
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+            <i class="fa fa-star"></i>
+        </div>
+        <h4>Rs {{ p.price }}</h4>
+    </div>
+    <a href="{% url 'carts' %}"><i class="fa fa-shopping-cart"></i></a>
+</div>
+{% endfor %}
+
+        </div>
+
+    </section>
+    <section id="banner" class="section-m1">
+        <h4>Repair Service</h4>
+        <h2>Up to <span>70% off</span> - All t-shirts & Accessories</h2>
+        <button class="normal">Explore More</button>
+    </section>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">our service</a></li>
+                        <li><a href="#">privacy policy</a></li>
+                        <li><a href="#">affiliated program</a></li>
+                    </ul>
+                </div>
+            <div class="footer-col">
+                <h4>Get help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">shipping</a></li>
+                    <li><a href="#">returns</a></li>
+                    <li><a href="#">order status</a></li>
+                    <li><a href="#">payment options</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Online Shop</h4>
+                <ul>
+                    <li><a href="#">Pants</a></li>
+                    <li><a href="#">Shirts</a></li>
+                    <li><a href="#">T-shirts</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
